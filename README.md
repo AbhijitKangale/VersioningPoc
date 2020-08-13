@@ -26,7 +26,7 @@ services:
       - "db:pgsql-server"
 
 
-Design Approach --> 
+Design Approach -> 
 
 1) The versioning information will be provided as a part of the header, for example - produces = "application/vdm.poc.app-v1+json". The advantage is the URI remains same across the versions and header changes.
 
