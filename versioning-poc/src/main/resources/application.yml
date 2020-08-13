@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: versioning-poc
+  flyway:
+    enabled: true
+    url:  jdbc:postgresql://localhost:5432/postgres
+    locations: classpath:db/migration
+    baselineOnMigrate: false
+    schemas: version
+    user: postgres
+    password: postgres@123
+    baselineVersion: 0
+  datasource:
+    username: postgres
+    password: postgres@123
+    url: 'jdbc:postgresql://localhost:5432/postgres'
+    driverClassName: org.postgresql.Driver
+    hikari:
+      connectionTimeout: 20000
+      idle-timeout: 60000
+      maximum-pool-size: 5
+      minimum-idle: 5
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        query:
+          plan_cache_max_size: 1
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+        default_schema: version
+        enable_lazy_load_no_trans: true
+        jdbc.lob.non_contextual_creation: true
